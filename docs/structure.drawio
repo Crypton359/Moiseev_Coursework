@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="eqs9xTH6O718hRAdcbdq">
+    <mxGraphModel dx="1212" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2mRtLjwg_770UekmUFTc-6" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=17;" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 19px; background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;MQ2&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;(Угарный газ)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="144" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-7" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;PIR&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;(Движение)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="329" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-8" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;SW&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;(Ворота)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="514" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-12" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-13" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-19" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fontSize=17;" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;Arduino Uno - опрос датчиков каждые 5 секунд&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="220" x="294" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Реле - управление вытяжкой&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="176" x="70" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Красный светодиод - индикация тревоги&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="214" x="297" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-20" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Serial Monitor&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="166" x="562" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-21" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;data/log.txt&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="166" x="562" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-22" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Node-RED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="166" x="562" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-23" edge="1" parent="1" source="2mRtLjwg_770UekmUFTc-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=gap;" target="2mRtLjwg_770UekmUFTc-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;SQLite&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="166" x="562" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="2mRtLjwg_770UekmUFTc-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;SQL-запросы&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="166" x="562" y="970" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
