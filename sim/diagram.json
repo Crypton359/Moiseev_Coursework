@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "A1 M0zes",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -47.4, "left": 76.2, "attrs": {} },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": 267.4,
+      "left": 224.9,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -216.8,
+      "left": 261.42,
+      "attrs": {}
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": -158.8, "left": 127.9, "attrs": {} },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 275,
+      "left": 108.4,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -157.2, "left": 71, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -207.25,
+      "left": 182.4,
+      "attrs": { "value": "300" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw2", "top": -158.8, "left": 195.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "gas1:VCC", "uno:5V", "red", [ "v-38.4", "h-68.1" ] ],
+    [ "gas1:GND", "uno:GND.2", "black", [ "v-48", "h-48.8" ] ],
+    [ "gas1:AOUT", "uno:A0", "green", [ "v0" ] ],
+    [ "pir1:OUT", "uno:2", "green", [ "v0" ] ],
+    [ "pir1:GND", "uno:GND.1", "black", [ "v48", "h-125.06" ] ],
+    [ "uno:5V", "pir1:VCC", "red", [ "v-0.1", "h3.8", "v-230.4" ] ],
+    [ "sw1:1", "uno:GND.1", "green", [ "v48", "h48", "v38.4" ] ],
+    [ "sw1:2", "uno:3", "green", [ "v38.4", "h159.3" ] ],
+    [ "relay1:IN", "uno:7", "green", [ "v-201.6", "h96.2" ] ],
+    [ "relay1:GND", "uno:GND.2", "black", [ "v-57.6", "h67.6", "v-38.3" ] ],
+    [ "relay1:VCC", "uno:5V", "red", [ "v-67.2", "h48", "v-28.7" ] ],
+    [ "r1:2", "uno:8", "green", [ "v0", "h171.6" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0", "h9.6", "v-86.4" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v57.6", "h106" ] ],
+    [ "sw2:1", "uno:GND.1", "green", [ "v86.4" ] ],
+    [ "sw2:2", "uno:4", "green", [ "v28.8", "h76.9" ] ]
+  ],
+  "dependencies": {}
+}
