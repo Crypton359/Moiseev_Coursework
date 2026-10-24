@@ -1,0 +1,4 @@
+DATA n=1 s1=30.00 s2=0 s3=1 mode=TEST
+DATA n=2 s1=30.00 s2=0 s3=1 mode=TEST
+DATA n=3 s1=265.98 s2=0 s3=1 mode=AUTO
+EVENT n=3 type=THRESHOLD mode=AUTO

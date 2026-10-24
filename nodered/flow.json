@@ -1,0 +1,187 @@
+[
+    {
+        "id": "aa5d6c203d8622e8",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fae5b26956908e8a",
+        "type": "watch",
+        "z": "aa5d6c203d8622e8",
+        "name": "Мониторинг журнала",
+        "files": "data/log.txt",
+        "recursive": "",
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "8047456104d9922c"
+            ]
+        ]
+    },
+    {
+        "id": "8047456104d9922c",
+        "type": "file in",
+        "z": "aa5d6c203d8622e8",
+        "name": "Чтение журнала",
+        "filename": "data/log.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 730,
+        "y": 600,
+        "wires": [
+            [
+                "a3244ef3bf6be2aa"
+            ]
+        ]
+    },
+    {
+        "id": "a3244ef3bf6be2aa",
+        "type": "function",
+        "z": "aa5d6c203d8622e8",
+        "name": "Разбор журнала и создание SQL",
+        "func": "// Период опроса в секундах\nconst T = 5;\n\n// Допустимые диапазоны датчиков\nconst RANGES = {\n    s1: [0,300],\n    s2: [0, 1],\n    s3: [0, 1]\n};\n\n// Получаем текст журнала\nconst text = String(msg.payload).replace(/^\\uFEFF/, '');\nconst sql = [];\n\n// Обрабатываем строки\ntext.split(/\\r?\\n/).forEach(raw => {\n    const line = raw.trim();\n    if (!line) return;\n\n    const parts = line.split(/\\s+/);\n    const kind = parts[0];\n\n    // Получаем параметры вида имя=значение\n    const f = {};\n\n    parts.slice(1).forEach(p => {\n        const index = p.indexOf('=');\n\n        if (index > 0) {\n            f[p.slice(0, index)] = p.slice(index + 1);\n        }\n    })\n\n    // Проверяем номер измерения\n    if (!/^\\d+$/.test(f.n || '')) return;\n\n    const n = Number(f.n);\n    if (n < 1 || !Number.isSafeInteger(n)) return;\n\n    const t = n * T;\n\n    // Определяем режим измерения\n    const mode = f.mode === 'TEST' ? 'TEST' : 'AUTO';\n\n    // Обработка показаний датчиков\n    if (kind === 'DATA') {\n        ['s1', 's2', 's3'].forEach(s => {\n            const rawValue = f[s];\n            const validNumber = rawValue !== undefined && /^-?\\d+(\\.\\d+)?$/.test(rawValue);\n\n            const v = validNumber ? Number(rawValue) : NaN;\n\n            // Сохраняем корректное числовое показание\n            if (Number.isFinite(v)) {\n                sql.push(\n                    `INSERT INTO readings(n,t_s,sensor,value,mode) VALUES(${n},${t},'${s}',${v},'${mode}');`\n                );\n            }\n\n            // Проверяем неисправность датчика\n            const [min, max] = RANGES[s];\n            \n            if (!Number.isFinite(v) || v < min || v > max) {\n                sql.push(\n                    `INSERT INTO events(n,t_s,type,message,mode) VALUES(${n},${t},'FAULT','датчик ${s} вне диапазона','${mode}');`\n                );\n            }\n        });\n    }\n\n    // Обработка событий Arduino\n    else if (kind === 'EVENT') {\n        if (f.type === 'THRESHOLD' || f.type === 'NORMAL') {\n            sql.push(\n                `INSERT INTO events(n,t_s,type,message,mode) VALUES(${n},${t},'${f.type}',NULL,'${mode}');`\n            );\n        }\n    }\n\n});\n\n// Если подходящих записей нет, ничего не загружаем\nif (sql.length === 0) {\n    node.warn(\"В журнале нед данных для загрузки\");\n    return [null, null];\n}\n\n// Формируем SQL-файл\nconst result = 'BEGIN;\\n' + 'DELETE FROM readings;\\n' + 'DELETE FROM events;\\n' + \"DELETE FROM sqlite_sequence WHERE name IN ('readings','events');\\n\" + sql.join('\\n') + '\\nCOMMIT;\\n';\n\n// Передаем SQL через второй выход\nreturn [null, {payload: result}];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 600,
+        "wires": [
+            [],
+            [
+                "46dacd7f3ebaaedd",
+                "0e8343a423dd5e0c"
+            ]
+        ]
+    },
+    {
+        "id": "46dacd7f3ebaaedd",
+        "type": "file",
+        "z": "aa5d6c203d8622e8",
+        "name": "Сохранение SQL",
+        "filename": "db/load.sql",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 1370,
+        "y": 660,
+        "wires": [
+            [
+                "2d63ba4920508018"
+            ]
+        ]
+    },
+    {
+        "id": "0e8343a423dd5e0c",
+        "type": "debug",
+        "z": "aa5d6c203d8622e8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1340,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "2d63ba4920508018",
+        "type": "exec",
+        "z": "aa5d6c203d8622e8",
+        "command": "sqlite3 db/variant.db \".read db/load.sql\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Загрузка данных в SQLite",
+        "x": 1640,
+        "y": 660,
+        "wires": [
+            [
+                "e1b61239f5c1794b"
+            ],
+            [
+                "a7b686eb67ce9272"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e1b61239f5c1794b",
+        "type": "debug",
+        "z": "aa5d6c203d8622e8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1920,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a7b686eb67ce9272",
+        "type": "debug",
+        "z": "aa5d6c203d8622e8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1920,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "dcd718ddb1b721a2",
+        "type": "inject",
+        "z": "aa5d6c203d8622e8",
+        "name": "Ручной запуск",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 480,
+        "y": 640,
+        "wires": [
+            [
+                "8047456104d9922c"
+            ]
+        ]
+    }
+]

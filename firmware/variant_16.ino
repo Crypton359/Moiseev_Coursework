@@ -42,7 +42,7 @@ void setup() {
 void loop() {
   // Получение тестовой концентрации
     if (Serial.available() > 0) {
-      String command = Serial.readStringUntil("\n");
+      String command = Serial.readStringUntil('\n');
       command.trim();
 
       if (command.startsWith("SET ")) {

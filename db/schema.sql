@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS readings (
   n      INTEGER NOT NULL,
   t_s    INTEGER NOT NULL,
   sensor TEXT    NOT NULL,
-  value  REAL    NOT NULL
+  value  REAL    NOT NULL,
+  mode TEXT NOT NULL DEFAULT 'AUTO'
 );
 
 CREATE TABLE IF NOT EXISTS events (
@@ -11,5 +12,6 @@ CREATE TABLE IF NOT EXISTS events (
   n       INTEGER NOT NULL,
   t_s     INTEGER NOT NULL,
   type    TEXT    NOT NULL,
-  message TEXT
+  message TEXT,
+  mode TEXT NOT NULL DEFAULT 'AUTO'
 );

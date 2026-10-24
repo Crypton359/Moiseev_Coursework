@@ -1,0 +1,2 @@
+DATA n=20 s1=350.00 s2=0 s3=1 mode=TEST
+EVENT n=20 type=THRESHOLD mode=TEST
